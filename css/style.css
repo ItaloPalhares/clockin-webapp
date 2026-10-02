@@ -1,0 +1,725 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --cor-box: #3a3a429c;
+    --cor-texto: #030303;
+    --cor-fundo: #2d2d34;
+    --cor-negativa: #f85e00;
+    --cor-positiva: #0081af;
+    --cor-branca: #ffffff;
+    --cor-superficie: #f7f7f8;
+    --cor-borda: #d9d9dd;
+    --cor-texto-claro: #eeeeef;
+    --sombra: 0 8px 24px rgba(0, 0, 0, 0.18);
+    --raio: 14px;
+    --largura-app: 1400px;
+}
+
+html {
+    min-width: 320px;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+
+button,
+input,
+a {
+    font: inherit;
+}
+
+button,
+input[type="submit"],
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.topbar {
+    width: min(calc(100% - 32px), var(--largura-app));
+    margin: 16px auto 0;
+    background-color: var(--cor-negativa);
+    border-radius: var(--raio);
+    box-shadow: var(--sombra);
+    position: sticky;
+    top: 10px;
+    z-index: 900;
+}
+
+.topbar-conteudo {
+    width: 100%;
+    min-height: 74px;
+    padding: 8px 20px;
+    display: flex;
+    align-items: center;
+}
+
+.topbar-conteudo a {
+    display: inline-flex;
+    align-items: center;
+    max-width: 100%;
+}
+
+.topbar-logo {
+    display: block;
+    width: auto;
+    height: 54px;
+    max-width: min(340px, 75vw);
+    object-fit: contain;
+}
+
+.dashbody,
+.adminbody {
+    min-height: 100vh;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+
+.app-layout {
+    width: min(calc(100% - 32px), var(--largura-app));
+    margin: 24px auto 40px;
+    display: grid;
+    gap: 24px;
+    align-items: start;
+}
+
+.dashboard-layout {
+    grid-template-columns: 300px minmax(0, 1fr);
+}
+
+.admin-layout {
+    grid-template-columns: 320px minmax(0, 1fr);
+}
+
+.dashbody section,
+.adminbody section {
+    width: 100%;
+    min-width: 0;
+    padding: 24px;
+    background-color: var(--cor-box);
+    border-radius: var(--raio);
+    box-shadow: var(--sombra);
+}
+
+#dados-usuario,
+#painel {
+    align-self: start;
+}
+
+#historico,
+#registros {
+    min-width: 0;
+}
+
+#dados-usuario h2,
+#historico h2,
+#painel h2,
+#registros h2 {
+    margin: 0 0 22px;
+    color: var(--cor-branca);
+    font-size: 24px;
+    line-height: 1.2;
+}
+
+#dados-usuario p,
+#painel label {
+    color: var(--cor-texto-claro);
+}
+
+#dados-usuario p {
+    margin: 10px 0;
+    overflow-wrap: anywhere;
+}
+
+#dados-usuario p:last-of-type {
+    margin-bottom: 24px;
+}
+
+#dados-usuario button,
+#dados-usuario a,
+#painel>a,
+#painel input[type="submit"],
+#areadacamera button,
+#fecharfoto {
+    width: 100%;
+    min-height: 44px;
+    padding: 11px 14px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s, opacity 0.2s;
+}
+
+#dados-usuario button,
+#dados-usuario a {
+    display: block;
+    margin-top: 12px;
+}
+
+#painel>a {
+    display: block;
+    margin-top: 18px;
+}
+
+#registrarponto,
+#testarcamera,
+#tirarfoto,
+#confirmarponto,
+#painel input[type="submit"],
+#confirmar,
+#dados-usuario a,
+#painel>a {
+    background-color: var(--cor-positiva);
+    color: var(--cor-branca);
+}
+
+#registrarponto:hover,
+#testarcamera:hover,
+#tirarfoto:hover,
+#confirmarponto:hover,
+#painel input[type="submit"]:hover,
+#confirmar:hover,
+#dados-usuario a:hover,
+#painel>a:hover {
+    background-color: #006f96;
+}
+
+#cancelarponto,
+#voltarcamera,
+#sair,
+#fecharfoto {
+    background-color: var(--cor-negativa);
+    color: var(--cor-branca);
+}
+
+#cancelarponto:hover,
+#voltarcamera:hover,
+#sair:hover,
+#fecharfoto:hover {
+    background-color: #d94f00;
+}
+
+#dados-usuario button:active,
+#dados-usuario a:active,
+#painel>a:active,
+#painel input[type="submit"]:active,
+#areadacamera button:active,
+#fecharfoto:active {
+    transform: scale(0.98);
+}
+
+#statusponto {
+    min-height: 20px;
+    margin: 10px 0 0;
+    color: var(--cor-texto-claro);
+    font-size: 14px;
+}
+
+#painel label {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+#painel input[type="text"],
+#painel input[type="email"] {
+    width: 100%;
+    min-height: 44px;
+    padding: 11px 12px;
+    margin-bottom: 12px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    background-color: var(--cor-branca);
+    color: var(--cor-texto);
+    font-size: 16px;
+    outline: none;
+}
+
+#painel input[type="text"]:focus,
+#painel input[type="email"]:focus {
+    border-color: var(--cor-positiva);
+    box-shadow: 0 0 0 3px rgba(0, 129, 175, 0.18);
+}
+
+.tabela-container {
+    width: 100%;
+    min-width: 0;
+    margin: 18px auto 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    background-color: var(--cor-branca);
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.14);
+}
+
+.tabela-container table {
+    width: 100%;
+    min-width: 600px;
+    table-layout: fixed;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+#registros .tabela-container table {
+    min-width: 900px;
+}
+
+.tabela-container td,
+.tabela-container th {
+    padding: 12px;
+    vertical-align: middle;
+    text-align: left;
+    color: var(--cor-texto);
+    background-color: var(--cor-branca);
+    border-bottom: 1px solid var(--cor-borda);
+    overflow-wrap: anywhere;
+}
+
+.tabela-container tr:first-child td,
+.tabela-container tr:first-child th {
+    background-color: #2f3038;
+    color: var(--cor-branca);
+    font-weight: 700;
+}
+
+.tabela-container tr:last-child td {
+    border-bottom: none;
+}
+
+.tabela-container tr:not(:first-child):hover td {
+    background-color: rgba(0, 129, 175, 0.08);
+}
+
+#historico .col-data {
+    width: 18%;
+}
+
+#historico .col-hora {
+    width: 14%;
+}
+
+#historico .col-localizacao {
+    width: 28%;
+}
+
+#historico .col-imagem {
+    width: 40%;
+}
+
+#registros .col-admin-nome {
+    width: 16%;
+}
+
+#registros .col-admin-email {
+    width: 23%;
+}
+
+#registros .col-data {
+    width: 10%;
+}
+
+#registros .col-hora {
+    width: 9%;
+}
+
+#registros .col-localizacao {
+    width: 20%;
+}
+
+#registros .col-imagem {
+    width: 22%;
+}
+
+.celula-nome,
+.celula-email {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.localizacao-celula {
+    padding: 0 !important;
+}
+
+.localizacao-link {
+    display: block;
+    width: 100%;
+    min-height: 44px;
+    padding: 12px;
+    color: var(--cor-positiva);
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.localizacao-link:hover {
+    background-color: rgba(0, 129, 175, 0.10);
+    text-decoration: underline;
+}
+
+.abrir-foto {
+    width: 100%;
+    max-width: 100%;
+    padding: 8px 0;
+    border: none;
+    background-color: transparent;
+    color: var(--cor-positiva);
+    font-weight: 700;
+    text-align: left;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.abrir-foto:hover {
+    text-decoration: underline;
+}
+
+.paginacao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 18px;
+    flex-wrap: wrap;
+}
+
+.paginacao a {
+    min-width: 40px;
+    min-height: 40px;
+    padding: 9px 11px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--cor-positiva);
+    border-radius: 7px;
+    background-color: var(--cor-branca);
+    color: var(--cor-positiva);
+    text-decoration: none;
+}
+
+.paginacao a:hover {
+    background-color: rgba(0, 129, 175, 0.12);
+}
+
+.paginacao .pagina-ativa {
+    background-color: var(--cor-positiva);
+    color: var(--cor-branca);
+    font-weight: 700;
+}
+
+#areadacamera {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100dvh;
+    z-index: 2000;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    overflow-y: auto;
+    background-color: rgba(45, 45, 52, 0.97);
+    color: var(--cor-branca);
+}
+
+#areadacamera h3 {
+    margin: 0;
+}
+
+#areadacamera video,
+#areadacamera img {
+    width: min(100%, 430px);
+    max-height: 58dvh;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+#areadacamera button {
+    max-width: 430px;
+}
+
+.modal-foto {
+    position: fixed;
+    inset: 0;
+    z-index: 2100;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.78);
+}
+
+.modal-foto-conteudo {
+    width: min(100%, 560px);
+    max-height: calc(100dvh - 40px);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    overflow-y: auto;
+    background-color: var(--cor-superficie);
+    border-radius: 12px;
+}
+
+#imagemregistro {
+    width: 100%;
+    max-height: 72dvh;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+#fecharfoto {
+    max-width: 220px;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+.authbody {
+    min-height: 100vh;
+    padding: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--cor-fundo);
+}
+
+.authbody form {
+    width: min(100%, 420px);
+    padding: 30px;
+    background-color: var(--cor-box);
+    border-radius: var(--raio);
+    box-shadow: var(--sombra);
+}
+
+.authbody h2 {
+    margin: 0 0 26px;
+    color: var(--cor-branca);
+    text-align: center;
+    font-size: 26px;
+}
+
+.authbody label {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--cor-texto-claro);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.authbody p {
+    margin: 0 0 18px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background-color: rgba(248, 94, 0, 0.16);
+    color: var(--cor-branca);
+    text-align: center;
+}
+
+.authbody input[type="text"],
+.authbody input[type="email"],
+.authbody input[type="password"] {
+    width: 100%;
+    min-height: 46px;
+    padding: 11px 12px;
+    margin-bottom: 18px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    background-color: var(--cor-branca);
+    color: var(--cor-texto);
+    font-size: 16px;
+    outline: none;
+}
+
+.authbody input[type="text"]:focus,
+.authbody input[type="email"]:focus,
+.authbody input[type="password"]:focus {
+    border-color: var(--cor-positiva);
+    box-shadow: 0 0 0 3px rgba(0, 129, 175, 0.18);
+}
+
+.authbody input[type="submit"] {
+    width: 100%;
+    min-height: 46px;
+    padding: 11px 14px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--cor-positiva);
+    color: var(--cor-branca);
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.authbody input[type="submit"]:hover {
+    background-color: #006f96;
+}
+
+.authbody a {
+    display: block;
+    margin-top: 18px;
+    color: var(--cor-negativa);
+    text-align: center;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.authbody a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+
+    .topbar,
+    .app-layout {
+        width: min(calc(100% - 24px), var(--largura-app));
+    }
+
+    .topbar {
+        margin-top: 12px;
+        top: 6px;
+    }
+
+    .topbar-conteudo {
+        min-height: 66px;
+        padding: 7px 14px;
+    }
+
+    .topbar-logo {
+        height: 48px;
+        max-width: 72vw;
+    }
+
+    .app-layout {
+        margin-top: 16px;
+        gap: 16px;
+    }
+
+    .dashboard-layout,
+    .admin-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .dashbody section,
+    .adminbody section {
+        padding: 20px;
+    }
+
+    #dados-usuario,
+    #painel,
+    #historico,
+    #registros {
+        width: 100%;
+        max-width: none;
+    }
+
+    .tabela-container table {
+        min-width: 560px;
+    }
+
+    #registros .tabela-container table {
+        min-width: 840px;
+    }
+}
+
+@media (max-width: 560px) {
+
+    .topbar,
+    .app-layout {
+        width: calc(100% - 16px);
+    }
+
+    .topbar {
+        margin-top: 8px;
+        border-radius: 10px;
+    }
+
+    .topbar-conteudo {
+        min-height: 58px;
+        padding: 6px 10px;
+    }
+
+    .topbar-logo {
+        height: 42px;
+        max-width: 78vw;
+    }
+
+    .app-layout {
+        margin: 12px auto 24px;
+        gap: 12px;
+    }
+
+    .dashbody section,
+    .adminbody section {
+        padding: 16px;
+        border-radius: 10px;
+    }
+
+    #dados-usuario h2,
+    #historico h2,
+    #painel h2,
+    #registros h2 {
+        margin-bottom: 18px;
+        font-size: 21px;
+    }
+
+    .tabela-container {
+        margin-top: 14px;
+        border-radius: 8px;
+    }
+
+    .tabela-container td,
+    .tabela-container th {
+        padding: 10px;
+    }
+
+    .paginacao {
+        gap: 6px;
+        margin-top: 14px;
+    }
+
+    .paginacao a {
+        min-width: 38px;
+        min-height: 38px;
+        padding: 8px 10px;
+    }
+
+    .authbody {
+        padding: 14px;
+        align-items: flex-start;
+    }
+
+    .authbody form {
+        margin-top: 8vh;
+        padding: 22px 18px;
+        border-radius: 10px;
+    }
+
+    .authbody h2 {
+        margin-bottom: 22px;
+        font-size: 23px;
+    }
+
+    #areadacamera,
+    .modal-foto {
+        padding: 12px;
+    }
+
+    .modal-foto-conteudo {
+        padding: 14px;
+    }
+}
